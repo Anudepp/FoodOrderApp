@@ -2,10 +2,19 @@ import Resturentcard from "./Resturentcard";
 
 import resList from "../utils/mockData";
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 const Body = ()=>{
-  const [listOfresturent, setlistOfresturent] = useState(resList)
+  const [listOfresturent, setlistOfresturent] = useState([])
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+
+    setlistOfresturent(resList);  // Update state with the 3rd card
+  };
+
   return(
     <div className="body">
       <div className="filter">
