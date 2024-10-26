@@ -1,0 +1,68 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  border:1px solid black
+}
+
+.logo{
+  width: 200px;
+}
+
+.nav-items>ul{
+  display: flex;
+  font-size: 24px;
+  list-style-type: none;
+}
+
+.nav-items>ul>li{
+  padding: 10px;
+  margin:10px
+}
+
+.res-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+/* .res-card{
+  margin: 5px;
+  padding: 5px;
+  width: 200px;
+} */
+.res-card {
+  width: 200px;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.res-card img {
+  width: 100%; /* Ensure the image fits within the card's width */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 150px; /* Optional: Prevents overly tall images */
+  object-fit: cover; /* Crop the image to fit the space without distortion */
+  border-radius: 5px;
+}
+
+.res-card:hover{
+  cursor: pointer;
+  border: 1px solid black;
+
+}
+
+.search{
+  padding: 10px;
+}
+
+.res-logo{
+  width:190px;
+}
+
+.filter-btn{
+  cursor: pointer;
+  width: 100px;
+  height: 50px;
+}
