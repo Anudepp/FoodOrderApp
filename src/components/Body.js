@@ -4,6 +4,8 @@ import resList from "../utils/mockData";
 
 import { useState,useEffect } from "react";
 
+import Shimmer from "./Shimmer";
+
 const Body = ()=>{
   const [listOfresturent, setlistOfresturent] = useState([])
   useEffect(() => {
@@ -12,10 +14,10 @@ const Body = ()=>{
 
   const fetchData = async () => {
 
-    setlistOfresturent(resList);  // Update state with the 3rd card
+    setlistOfresturent(resList);  
   };
 
-  return(
+  return listOfresturent.length  ===0?<Shimmer/>:(
     <div className="body">
       <div className="filter">
         <button 
