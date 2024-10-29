@@ -2,3 +2,5 @@ export const LOGO_URL = "https://www.logodesign.net/logo/smoking-burger-with-let
 
 
 export const SWIGGY_CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
+
+
