@@ -98,7 +98,7 @@ const Body = () => {
       <div className="res-container">
         {filteredRestaurant && filteredRestaurant.length > 0 ? (
           filteredRestaurant.map((restaurant) => (
-            <Link
+            <Link className="nav-link"
               key={restaurant.info.id}
               to={"/restaurants/" + restaurant.info.id}
             >

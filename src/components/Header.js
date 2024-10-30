@@ -18,11 +18,11 @@ const Header = ()=>{
       <div className="nav-items">
         <ul>
           <li>
-            <Link to = "/">Home</Link></li>
+            <Link to = "/" className="nav-link">Home</Link></li>
           <li>
-            <Link to = "/contact">Contact US</Link></li>
+            <Link to = "/contact" className="nav-link">Contact US</Link></li>
           <li>
-            <Link to = "/about">About US</Link></li>
+            <Link to = "/about" className="nav-link">About US</Link></li>
           <li>Cart</li>
           <button onClick={()=>{
             btnNamereact ==="Login"?setbtnNamereact("Logout"):setbtnNamereact("Login")
