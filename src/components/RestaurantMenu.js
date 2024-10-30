@@ -28,18 +28,19 @@ const RestaurantMenu = () => {
   return (resInfo === null ? (
     <Shimmer />
   ) : (
-    <div className="menu">
-        <h1>{name}</h1>
-        <h3>{cuisines.join(", ")}</h3>
-      <h2>Menu</h2>
-        <ul>
-          {itemCards.map((item) => (
-            <li key={item.card.info.id}>
-              {item.card.info.name} - ₹{item.card.info.defaultPrice / 100 || item.card.info.price / 100}
-            </li>
-          ))}
-      </ul>
-    </div>
+    <div className="menu-container">
+    <h1 className="menu-title">{name}</h1>
+    <h3 className="menu-cuisines">{cuisines.join(", ")}</h3>
+    <h2 className="menu-subtitle">Menu</h2>
+    <ul className="menu-list">
+      {itemCards.map((item) => (
+        <li key={item.card.info.id} className="menu-item">
+          <span className="menu-item-name">{item.card.info.name}</span>
+          <span className="menu-item-price">₹{item.card.info.defaultPrice / 100 || item.card.info.price / 100}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
   ) );
 };
 export default RestaurantMenu;
