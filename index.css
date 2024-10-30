@@ -253,3 +253,7 @@ button:hover {
   color: #666;
   margin-bottom: 1.5rem;
 }
+.nav-link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent */
+}
