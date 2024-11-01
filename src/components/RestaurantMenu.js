@@ -1,6 +1,7 @@
 import {useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
+import { SWIGGY_CDN_URL } from "../utils/constants";
 
 
 const RestaurantMenu = () => {
@@ -37,6 +38,15 @@ const RestaurantMenu = () => {
         <li key={item.card.info.id} className="menu-item">
           <span className="menu-item-name">{item.card.info.name}</span>
           <span className="menu-item-price">₹{item.card.info.defaultPrice / 100 || item.card.info.price / 100}</span>
+          <span>
+            <img className="menu-img"
+              src={`${SWIGGY_CDN_URL}${item.card.info.imageId}`}
+              />
+          </span>
+          
+          
+            
+          
         </li>
       ))}
     </ul>
