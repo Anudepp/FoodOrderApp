@@ -315,3 +315,94 @@ button:hover {
   font-size: 2.2em;
   vertical-align: middle; 
 }
+
+
+/* Card container */
+.res-card {
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
+  margin: auto;
+}
+
+.res-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+/* Image styling */
+.res-logo {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+/* Card content */
+.res-card-content {
+  padding: 0.5rem 1rem; /* Adjusted for tighter spacing */
+}
+
+.res-name {
+  color: #333;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0.25rem 0; /* Tighter spacing */
+}
+
+.res-cuisines {
+  color: #555;
+  font-size: 0.9rem;
+  margin: 0.25rem 0; /* Tighter spacing */
+  opacity: 0.8;
+}
+
+/* Rating styling */
+.res-rating {
+  display: inline-flex;
+  align-items: center;
+  background-color: #ff6b6b;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.25rem 0.5rem;
+  margin: 0.25rem 0; /* Tighter spacing */
+}
+
+.star-symbol {
+  font-size: 1rem;
+  margin-left: 0.25rem;
+}
+
+/* Cost styling */
+.res-cost {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0.25rem 0; /* Tighter spacing */
+}
+
+/* Delivery time styling */
+.res-delivery-time {
+  color: #888;
+  font-size: 0.85rem;
+  margin-top: 0.25rem; /* Tighter spacing */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .res-card {
+    max-width: 100%;
+  }
+
+  .res-logo {
+    height: 160px;
+  }
+}
