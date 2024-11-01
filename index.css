@@ -313,9 +313,8 @@ button:hover {
 /* Individual item styling */
 .menu-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  padding: 15px 0;
   border-bottom: 1px solid #eee;
   transition: background-color 0.2s ease;
 }
@@ -324,31 +323,47 @@ button:hover {
   background-color: #f9f9f9;
 }
 
+/* Image styling for menu items */
+.menu-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  margin-right: 20px;
+  object-fit: cover;
+}
+
+.menu-item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Name and price styling */
 .menu-item-name {
   font-size: 1.25rem;
   color: #2c3e50;
   font-weight: 500;
+  flex: 2;
+  text-align: left;
 }
 
 .menu-item-price {
   font-size: 1.25rem;
   color: #ff6b6b;
   font-weight: 600;
-}
-
-/* Additional styles for better spacing */
-.menu-item-name, .menu-item-price {
   flex: 1;
-}
-
-.menu-item-name {
-  text-align: left;
-}
-
-.menu-item-price {
   text-align: right;
+  padding: 28px;
 }
 
+/* Better layout for text and image */
+.menu-item-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 2;
+}
 .star-symbol {
   font-size: 2.2em;
   vertical-align: middle; 
