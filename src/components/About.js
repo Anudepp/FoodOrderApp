@@ -5,13 +5,30 @@ import React from 'react';
 
 // About component is a parent component of UserClass component
 
-// lifecycle methods in class components
-// 1. parent constructor
-// 2. parent render
-// 3. child constructor
-// 4. child render
-// 5. child componentDidMount
-// 6. parent componentDidMount
+/* 
+
+class component lifecycle methods for multiple child components
+
+
+- 1. parent constructor
+- 2. parent render
+    - 3. child 1 constructor
+    - 4. child 1 render
+    - 5. child 2 constructor    -- this is render phase 
+    - 6. child 2 render
+    - 7. child 3 constructor
+    - 8. child 3 render
+
+
+    <DOM updated in a single batch>
+    - 9. child 1 componentDidMount    -- this is commit phase
+    - 10. child 2 componentDidMount
+    - 11. child 3 componentDidMount
+
+
+- 12. parent componentDidMount
+
+*/ 
 
 // componentDIdMount is used to make API calls, fetch data from the server, etc.
 class About extends React.Component {
@@ -29,10 +46,20 @@ class About extends React.Component {
         <h1>About Us</h1>
         <h2>welcome to Food App</h2>
         <UserClass
-          name={"Anudeep(class props)"}
+          name={"child 1 (class props)"}
           location={"Delhi class props"}
           contact={"234567890 class props"}
         />
+        <UserClass
+        name={"Child 2 (class props)"}
+        location={"Hyderabad class props"}
+        contact={"0987654321 class props"}
+        />
+        <UserClass
+        name={"Child 3 (class props)"}
+        location={"Hyderabad class props"}
+        contact={"0987654321 class props"}
+      />
       </div>
     );
   }

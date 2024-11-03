@@ -3,7 +3,7 @@ import React from 'react';
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-    console.log(" Child Constructor");
+    console.log(this.props.name +" Child Constructor");
 
     // Multiple Local state variable
     this.state = {
@@ -13,7 +13,7 @@ class UserClass extends React.Component {
   };
   
   componentDidMount() {
-    console.log(" Child componentDidMount");
+    console.log(this.props.name +" Child componentDidMount");
   }
   render() {
     
@@ -21,7 +21,7 @@ class UserClass extends React.Component {
     const { name, location, contact } = this.props;
     const { count } = this.state;
 
-    console.log(" Child Render");
+    console.log(this.props.name +" Child Render");
 
 
     return (
