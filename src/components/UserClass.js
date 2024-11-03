@@ -3,18 +3,27 @@ import React from 'react';
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
+    console.log(" Child Constructor");
 
     // Multiple Local state variable
     this.state = {
       count: 1,
       count2: 2
     };
-};
+  };
+  
+  componentDidMount() {
+    console.log(" Child componentDidMount");
+  }
   render() {
+    
     // Array destructuring
     const { name, location, contact } = this.props;
     const { count } = this.state;
+
+    console.log(" Child Render");
+
+
     return (
       <div className="user-card">
         <h2>{name}</h2>
