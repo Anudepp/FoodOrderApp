@@ -8,8 +8,6 @@ import React from 'react';
 /* 
 
 class component lifecycle methods for multiple child components
-
-
 - 1. parent constructor
 - 2. parent render
     - 3. child 1 constructor
@@ -46,20 +44,8 @@ class About extends React.Component {
         <h1>About Us</h1>
         <h2>welcome to Food App</h2>
         <UserClass
-          name={"child 1 (class props)"}
-          location={"Delhi class props"}
-          contact={"234567890 class props"}
         />
-        <UserClass
-        name={"Child 2 (class props)"}
-        location={"Hyderabad class props"}
-        contact={"0987654321 class props"}
-        />
-        <UserClass
-        name={"Child 3 (class props)"}
-        location={"Hyderabad class props"}
-        contact={"0987654321 class props"}
-      />
+
       </div>
     );
   }
