@@ -3,80 +3,35 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import useFetchRestaurants from "../utils/useFetchRestaurants";
+
 const Body = () => {
-  const [listOfRestaurants, setListOfRestraunt] = useState(null);
-  const [filteredRestaurant, setFilteredRestaurant] = useState(null);
   const [searchText, setSearchText] = useState("");
-  const [error, setError] = useState(null);
   const onlineStatus = useOnlineStatus();
+  const listOfRestaurants = useFetchRestaurants(); // Updated to match new return value
 
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
+  // Update filteredRestaurant when listOfRestaurants changes
   useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const data = await fetch(
-        "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
-      );
-
-      if (!data.ok) {
-        throw new Error(`HTTP error! status: ${data.status}`);
-      }
-
-      const json = await data.json();
-      console.log("API Response:", json); // Debug log
-
-      // Find the correct cards array that contains restaurants
-      const cards = json?.data?.cards;
-      const restaurantList = cards?.find(
-        card => card?.card?.card?.gridElements?.infoWithStyle?.restaurants
-      )?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-
-      if (!restaurantList) {
-        throw new Error("No restaurant data found in the response");
-      }
-
-      setListOfRestraunt(restaurantList);
-      setFilteredRestaurant(restaurantList);
-      setError(null);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      setError(error.message);
-      setListOfRestraunt([]);
-      setFilteredRestaurant([]);
+    if (listOfRestaurants) {
+      setFilteredRestaurant(listOfRestaurants);
     }
-  };
-
-  if (error) {
-    return (
-      <div className="error-container">
-        <h2>Error loading restaurants</h2>
-        <p>{error}</p>
-        <button onClick={fetchData}>Try Again</button>
-      </div>
-    );
-  }
-
-
- 
-
+  }, [listOfRestaurants]);
 
   if (onlineStatus === false) {
     return (
       <div className="offline-container">
         <h2>You are offline</h2>
         <p>Connect to the internet to view restaurants</p>
-
       </div>
     );
   }
 
+  // Display loading shimmer if listOfRestaurants is null (still fetching)
   if (!listOfRestaurants) {
     return <Shimmer />;
   }
-
 
   return (
     <div className="body">
@@ -115,11 +70,13 @@ const Body = () => {
       <div className="res-container">
         {filteredRestaurant && filteredRestaurant.length > 0 ? (
           filteredRestaurant.map((restaurant) => (
-            <Link className="nav-link"
+            <Link
+              className="nav-link"
               key={restaurant.info.id}
               to={"/restaurants/" + restaurant.info.id}
             >
-            <Resturentcard key={restaurant.info.id} resData={restaurant} /></Link>
+              <Resturentcard key={restaurant.info.id} resData={restaurant} />
+            </Link>
           ))
         ) : (
           <p>No restaurants found</p>
