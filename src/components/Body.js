@@ -4,13 +4,18 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useFetchRestaurants from "../utils/useFetchRestaurants";
+import { withVegLabel } from "./Resturentcard";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
   const onlineStatus = useOnlineStatus();
-  const listOfRestaurants = useFetchRestaurants(); // Updated to match new return value
+  const listOfRestaurants = useFetchRestaurants();// Updated to match new return value
+
+  console.log("Pormoted Restaurent",listOfRestaurants);
 
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+
+  const VegResturentcard = withVegLabel(Resturentcard);
 
   // Update filteredRestaurant when listOfRestaurants changes
   useEffect(() => {
@@ -75,7 +80,9 @@ const Body = () => {
               key={restaurant.info.id}
               to={"/restaurants/" + restaurant.info.id}
             >
-              <Resturentcard key={restaurant.info.id} resData={restaurant} />
+              {restaurant.info.veg ? (<VegResturentcard resData={restaurant} />) : (
+                <Resturentcard key={restaurant.info.id} resData={restaurant} />
+              )}
             </Link>
           ))
         ) : (
