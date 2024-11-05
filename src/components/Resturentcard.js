@@ -2,7 +2,7 @@ import { SWIGGY_CDN_URL } from "../utils/constants";
 
 const Resturentcard = (props) => {
   const { resData } = props;
-  const { cloudinaryImageId, name, avgRating, cuisines, costForTwo, sla } = resData?.info;
+  const { cloudinaryImageId = "", name = "Unknown", avgRating = "N/A", cuisines = [], costForTwo = "N/A", sla = {} } = resData?.info || {};
 
   return (
     <div className="res-card">
@@ -23,5 +23,23 @@ const Resturentcard = (props) => {
     </div>
   );
 };
+
+// Higher order component
+
+//input is Resturentcard => vegResturentcard
+
+
+export const withVegLabel = (Resturentcard) => { 
+  return (props) => {
+    return (
+      <div>
+        <label>Vegetarian</label>
+        <Resturentcard{...props} />
+      </div>
+    );
+    
+  }
+}
+
 
 export default Resturentcard;
